@@ -17,7 +17,7 @@ The software in this repository was developed for an aquatic UAV in preparation 
 - model/ contains the model weights
 	- model/performance/ contains representative metrics of performance (e.g. F1 curve, PR curve, confusion matrix etc...) from a thorough evaluation process involving hundreds of images
 
-- output/ will contain the model outputs; note that outputs will be saved under a subdirectory whose name corresponds to the job name the user provides when issuing the command to run the model (see #instructions for more information)
+- output/ will contain the model outputs; note that outputs will be saved under a subdirectory whose name corresponds to the job name the user provides when issuing the command to run the model (see ##instructions for more information)
 	- output/samples/ contains some samples for the user to see.
 
 - src/ contains the source code 
