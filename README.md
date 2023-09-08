@@ -10,6 +10,13 @@
 ## Overview
 The software in this repository was developed for an aquatic UAV in preparation for an obstacle course competition on the Potomac River (2022) which consisted of various buoys and other static objects floating in the water. This repository contains a YOLOv5 neural network trained on images of a static obstacle course in an aquatic environment; credit to @john-kliem and @wellssam100 for helping with collecting + labeling dataset and to @glenn-jocher / @ultralytics for NN definition + training + inference programs.
 
+## Background
+ Modern Unmanned Autonomous Vehicles (UAVs) rely heavily on advanced machine-learning models to perform real-time object detection, localization, and recognition. This information enables them to build high-resolution / information-dense maps of the environment which, in turn, better positions them to independently make good navigational decisions.
+
+ The YOLO object detection algorithm was originally created by Joseph Redmon in 2015 and subsequently improved on by others, including Glenn Jocher (@glenn-jocher) and his company, Ultralytics (@ultralytics), who are now spearheading efforts to improve AI vision algorithms. The fundamental contribution of the YOLO network lies in its ability to look at a given image in its totality and to simultaneously predict bounding box coordinates and object class. It resembles the human visual system more than any other algorithm proposed thus far and is capable of generalizing across image styles (e.g. natural, artistic, etc. . . ). The general idea behind the algorithm is simple to understand. It first breaks up the image into an SxS grid and commands each cell of the grid to generate a set of bounding boxes based on local features. The grid cell also computes a set of class probabilities based on local features and uses these probabilities to classify each bounding box. YOLO has various limitations. For instance, it struggles to accurately identify clusters of small objects. The dataset it was trained on here, though, plays well to its strengths.
+
+ Traditional object detection algorithms function by compartmentalizing their operations into several disjoint components. They tend to repurpose existing methods designed for other problems instead of developing specialized techniques from scratch. For this reason, they are commonly unwieldy and slow. Since each component is oriented around a relatively isolated subproblem, the loss functions governing the models in the system are unrelated to the cumulative aim of the algorithm, object detection. This explains, at least in part, the subpar accuracy of these early techniques such as Deformable Parts Model (DPM) and FR-CNN.
+
 ## Repository Contents
 
 - data/ contains the test images the user can run the model on for demo purposes
@@ -27,15 +34,7 @@ The software in this repository was developed for an aquatic UAV in preparation 
 	- preprocess.py was initially applied to the training dataset, which is not included here due to storage restrictions
 	- requirements.txt specifies the necessary environment to run the source files
 	- train.py was used to train the YOLOv5 on the custom dataset (written by @ultralytics)
-	- val.py was used for validation / to prevent overfitting during training (written by @ultralytics)
-
-
-## Background
- Modern Unmanned Autonomous Vehicles (UAVs) rely heavily on advanced machine-learning models to perform real-time object detection, localization, and recognition. This information enables them to build high-resolution / information-dense maps of the environment which, in turn, better positions them to independently make good navigational decisions.
-
- The YOLO object detection algorithm was originally created by Joseph Redmon in 2015 and subsequently improved on by others, including Glenn Jocher (@glenn-jocher) and his company, Ultralytics (@ultralytics), who are now spearheading efforts to improve AI vision algorithms. The fundamental contribution of the YOLO network lies in its ability to look at a given image in its totality and to simultaneously predict bounding box coordinates and object class. It resembles the human visual system more than any other algorithm proposed thus far and is capable of generalizing across image styles (e.g. natural, artistic, etc. . . ). The general idea behind the algorithm is simple to understand. It first breaks up the image into an SxS grid and commands each cell of the grid to generate a set of bounding boxes based on local features. The grid cell also computes a set of class probabilities based on local features and uses these probabilities to classify each bounding box. YOLO has various limitations. For instance, it struggles to accurately identify clusters of small objects. The dataset it was trained on here, though, plays well to its strengths.
-
- Traditional object detection algorithms function by compartmentalizing their operations into several disjoint components. They tend to repurpose existing methods designed for other problems instead of developing specialized techniques from scratch. For this reason, they are commonly unwieldy and slow. Since each component is oriented around a relatively isolated subproblem, the loss functions governing the models in the system are unrelated to the cumulative aim of the algorithm, object detection. This explains, at least in part, the subpar accuracy of these early techniques such as Deformable Parts Model (DPM) and FR-CNN. 
+	- val.py was used for validation / to prevent overfitting during training (written by @ultralytics) 
 
 ## Instructions
 To install dependencies, navigate to src/ and enter
